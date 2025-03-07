@@ -1,0 +1,8 @@
+﻿  grammar.cpp
+D:\Software Tools\CompilationMethods\Laboratory work 1\Laboratory work 1\grammar.cpp(27,48): warning C4267: +=: преобразование из "size_t" в "int"; возможна потеря данных
+  main.cpp
+  syntaxanalyzer.cpp
+D:\Software Tools\CompilationMethods\Laboratory work 1\Laboratory work 1\syntaxanalyzer.cpp(99,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Software Tools\CompilationMethods\Laboratory work 1\Laboratory work 1\syntaxanalyzer.cpp(127,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Создание кода...
+  Laboratory work 1.vcxproj -> D:\Software Tools\CompilationMethods\Laboratory work 1\x64\Debug\Laboratory work 1.exe
