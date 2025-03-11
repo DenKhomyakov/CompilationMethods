@@ -15,12 +15,12 @@
       "RelativeMoniker": "D:0:0:{D6CB12FB-9BF4-46D4-AF18-346073426A29}|Laboratory work 1\\Laboratory work 1.vcxproj|solutionrelative:Laboratory work 1\\syntaxanalyzer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6CB12FB-9BF4-46D4-AF18-346073426A29}|Laboratory work 1\\Laboratory work 1.vcxproj|D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D6CB12FB-9BF4-46D4-AF18-346073426A29}|Laboratory work 1\\Laboratory work 1.vcxproj|solutionrelative:Laboratory work 1\\grammar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6CB12FB-9BF4-46D4-AF18-346073426A29}|Laboratory work 1\\Laboratory work 1.vcxproj|D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D6CB12FB-9BF4-46D4-AF18-346073426A29}|Laboratory work 1\\Laboratory work 1.vcxproj|solutionrelative:Laboratory work 1\\grammar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6CB12FB-9BF4-46D4-AF18-346073426A29}|Laboratory work 1\\Laboratory work 1.vcxproj|D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D6CB12FB-9BF4-46D4-AF18-346073426A29}|Laboratory work 1\\Laboratory work 1.vcxproj|solutionrelative:Laboratory work 1\\grammar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,31 +34,29 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "grammar.h",
               "DocumentMoniker": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.h",
               "RelativeDocumentMoniker": "Laboratory work 1\\grammar.h",
-              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.h*",
-              "RelativeToolTip": "Laboratory work 1\\grammar.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAATAAAAAAAAAA==",
+              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.h",
+              "RelativeToolTip": "Laboratory work 1\\grammar.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-07T07:50:18.495Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "grammar.cpp",
               "DocumentMoniker": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.cpp",
               "RelativeDocumentMoniker": "Laboratory work 1\\grammar.cpp",
-              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.cpp*",
-              "RelativeToolTip": "Laboratory work 1\\grammar.cpp*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
+              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\grammar.cpp",
+              "RelativeToolTip": "Laboratory work 1\\grammar.cpp",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABwAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-07T07:50:25.763Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -66,13 +64,12 @@
               "Title": "syntaxanalyzer.h",
               "DocumentMoniker": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\syntaxanalyzer.h",
               "RelativeDocumentMoniker": "Laboratory work 1\\syntaxanalyzer.h",
-              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\syntaxanalyzer.h*",
-              "RelativeToolTip": "Laboratory work 1\\syntaxanalyzer.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAaAAAAAAAAAA==",
+              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\syntaxanalyzer.h",
+              "RelativeToolTip": "Laboratory work 1\\syntaxanalyzer.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-07T07:52:36.305Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -80,13 +77,12 @@
               "Title": "syntaxanalyzer.cpp",
               "DocumentMoniker": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\syntaxanalyzer.cpp",
               "RelativeDocumentMoniker": "Laboratory work 1\\syntaxanalyzer.cpp",
-              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\syntaxanalyzer.cpp*",
-              "RelativeToolTip": "Laboratory work 1\\syntaxanalyzer.cpp*",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAAIMAAAABAAAAAAAAAA==",
+              "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\syntaxanalyzer.cpp",
+              "RelativeToolTip": "Laboratory work 1\\syntaxanalyzer.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADYAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-07T07:53:51.89Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -96,7 +92,7 @@
               "RelativeDocumentMoniker": "Laboratory work 1\\main.cpp",
               "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 1\\Laboratory work 1\\main.cpp*",
               "RelativeToolTip": "Laboratory work 1\\main.cpp*",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-07T07:45:54.132Z",
               "IsPinned": true,

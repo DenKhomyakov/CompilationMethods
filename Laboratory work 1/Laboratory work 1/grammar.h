@@ -27,9 +27,9 @@ public:
     bool isNonTerminal(char symbol) const;
     vector<string> getRules(char nonTerminal) const;
     string getRule(char nonTerminal, int index) const;
-    string getRule(const Element& elem) const;
+    string getRule(const Element& element) const;
     int getNumber(char nonTerminal, int index) const;
-    int getNumber(const Element& elem) const;
+    int getNumber(const Element& element) const;
 };
 
 #endif // GRAMMAR_H
