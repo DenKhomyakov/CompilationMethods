@@ -6,75 +6,82 @@
 
 using namespace std;
 
-// Функция для преобразования строки в целое число
-int string_to_int(const string& str) {
+int convertStringToInt(const string& str) {
     int result;
     istringstream iss(str);
     iss >> result;
+
     return result;
 }
 
-// Определение типов для таблиц action и goto
 using ActionTable = map<pair<int, char>, string>;
 using GotoTable = map<pair<int, char>, int>;
 
-// Функция для выполнения свертки
 void reduce(stack<int>& stateStack, stack<char>& symbolStack, int ruleLength, char nonTerminal, const GotoTable& gotoTable) {
     for (int i = 0; i < ruleLength; ++i) {
+        if (stateStack.empty() || symbolStack.empty()) {
+            throw runtime_error("Ошибка: стек пуст при выполнении свертки.");
+        }
+
         stateStack.pop();
         symbolStack.pop();
     }
+
     symbolStack.push(nonTerminal);
-    int newState = gotoTable.at({ stateStack.top(), nonTerminal });
+
+    auto gotoIt = gotoTable.find({ stateStack.top(), nonTerminal });
+    if (gotoIt == gotoTable.end()) {
+        throw runtime_error("Ошибка: нет перехода в таблице goto для состояния " + to_string(stateStack.top()) + " и символа " + nonTerminal);
+    }
+    int newState = gotoIt->second;
     stateStack.push(newState);
 }
 
 int main() {
     setlocale(LC_ALL, "Rus");
 
-    // Инициализация таблиц action и goto
     ActionTable actionTable = {
-    {{0, '!'}, "s2"},
-    {{1, '$'}, "acc"},
-    {{2, '('}, "s3"},
-    {{2, 'a'}, "s4"},
-    {{2, 'b'}, "s5"},
-    {{3, '('}, "s3"},
-    {{3, 'a'}, "s4"},
-    {{3, 'b'}, "s5"},
-    {{4, '!'}, "r6"},
-    {{4, '+'}, "r6"},
-    {{4, '*'}, "r6"},
-    {{4, ')'}, "r6"},
-    {{5, '!'}, "r7"},
-    {{5, '+'}, "r7"},
-    {{5, '*'}, "r7"},
-    {{5, ')'}, "r7"},
-    {{6, '!'}, "s10"},
-    {{7, '!'}, "r2"},
-    {{7, '+'}, "s11"},
-    {{7, ')'}, "r2"},
-    {{8, '!'}, "r4"},
-    {{8, '+'}, "r4"},
-    {{8, '*'}, "s12"},
-    {{8, ')'}, "r4"},
-    {{9, ')'}, "s13"},
-    {{10, '$'}, "r1"},
-    {{11, '('}, "s3"},
-    {{11, 'a'}, "s4"},
-    {{11, 'b'}, "s5"},
-    {{12, '('}, "s3"},
-    {{12, 'a'}, "s4"},
-    {{12, 'b'}, "s5"},
-    {{13, '!'}, "r8"},
-    {{13, '+'}, "r8"},
-    {{13, '*'}, "r8"},
-    {{13, ')'}, "r8"},
-    {{14, '!'}, "r3"},
-    {{14, ')'}, "r3"},
-    {{15, '!'}, "r5"},
-    {{15, '+'}, "r5"},
-    {{15, ')'}, "r5"}
+        {{0, '!'}, "s2"},
+        {{1, '$'}, "acc"},
+        {{2, '('}, "s3"},
+        {{2, 'a'}, "s4"},
+        {{2, 'b'}, "s5"},
+        {{3, '('}, "s3"},
+        {{3, 'a'}, "s4"},
+        {{3, 'b'}, "s5"},
+        {{4, '!'}, "r6"},
+        {{4, '+'}, "r6"},
+        {{4, '*'}, "r6"},
+        {{4, ')'}, "r6"},
+        {{5, '!'}, "r7"},
+        {{5, '+'}, "r7"},
+        {{5, '*'}, "r7"},
+        {{5, ')'}, "r7"},
+        {{6, '!'}, "s10"},
+        {{7, '!'}, "r2"},
+        {{7, '+'}, "s11"},
+        {{7, ')'}, "r2"},
+        {{8, '!'}, "r4"},
+        {{8, '+'}, "r4"},
+        {{8, '*'}, "s12"},
+        {{8, ')'}, "r4"},
+        {{9, ')'}, "s13"},
+        {{10, '$'}, "r1"},
+        {{11, '('}, "s3"},
+        {{11, 'a'}, "s4"},
+        {{11, 'b'}, "s5"},
+        {{12, '('}, "s3"},
+        {{12, 'a'}, "s4"},
+        {{12, 'b'}, "s5"},
+        {{13, '!'}, "r8"},
+        {{13, '+'}, "r8"},
+        {{13, '*'}, "r8"},
+        {{13, ')'}, "r8"},
+        {{14, '!'}, "r3"},
+        {{14, ')'}, "r3"},
+        {{15, '!'}, "r5"},
+        {{15, '+'}, "r5"},
+        {{15, ')'}, "r5"}
     };
 
     GotoTable gotoTable = {
@@ -96,86 +103,89 @@ int main() {
         {{12, 'M'}, 8}
     };
 
-    // Входная строка
-    string input = "!a+b!";
-    input += '$';  // Добавляем маркер конца строки
+    string input = "!a+b*(a+b)+a+b!";
+    input += '$';
 
-    // Стек состояний и стек символов
     stack<int> stateStack;
     stack<char> symbolStack;
     stateStack.push(0);
 
-    // Вектор для хранения номеров продукций
     vector<int> productions;
 
-    int i = 0;
-    while (i < input.size()) {
-        int currentState = stateStack.top();
-        char currentSymbol = input[i];
+    map<int, int> ruleLengths = {
+        {1, 3}, {2, 1}, {3, 3}, {4, 1}, {5, 3}, {6, 1}, {7, 1}, {8, 3}
+    };
 
-        // Поиск действия в таблице action
-        auto actionIt = actionTable.find({ currentState, currentSymbol });
-        if (actionIt == actionTable.end()) {
-            cout << "Ошибка: нет действия для состояния " << currentState << " и символа " << currentSymbol << endl;
-            return 1;
-        }
+    map<int, char> ruleNonTerminals = {
+        {1, 'A'}, {2, 'B'}, {3, 'B'}, {4, 'T'}, {5, 'T'}, {6, 'M'}, {7, 'M'}, {8, 'M'}
+    };
 
-        string action = actionIt->second;
+    try {
+        int i = 0;
 
-        if (action[0] == 's') {
-            // Перенос
-            int newState = string_to_int(action.substr(1)); // Используем string_to_int вместо stoi
-            stateStack.push(newState);
-            symbolStack.push(currentSymbol);
-            i++;
-        }
-        else if (action[0] == 'r') {
-            // Свертка
-            int ruleNumber = string_to_int(action.substr(1)); // Используем string_to_int вместо stoi
-            productions.push_back(ruleNumber);
+        while (i < input.size()) {
+            int currentState = stateStack.top();
+            char currentSymbol = input[i];
 
-            // Определение длины правой части правила
-            int ruleLength = 0;
-            switch (ruleNumber) {
-            case 1: ruleLength = 3; break;
-            case 2: ruleLength = 1; break;
-            case 3: ruleLength = 3; break;
-            case 4: ruleLength = 1; break;
-            case 5: ruleLength = 3; break;
-            case 6: ruleLength = 1; break;
-            case 7: ruleLength = 1; break;
-            case 8: ruleLength = 3; break;
+            if (currentSymbol != '!' && currentSymbol != '+' && currentSymbol != '*' &&
+                currentSymbol != '(' && currentSymbol != ')' && currentSymbol != 'a' &&
+                currentSymbol != 'b' && currentSymbol != '$') {
+                throw runtime_error("Ошибка: недопустимый символ в входной строке: " + string(1, currentSymbol));
             }
 
-            // Определение нетерминала для свертки
-            char nonTerminal = '\0';
-            switch (ruleNumber) {
-            case 1: nonTerminal = 'A'; break;
-            case 2: case 3: nonTerminal = 'B'; break;
-            case 4: case 5: nonTerminal = 'T'; break;
-            case 6: case 7: case 8: nonTerminal = 'M'; break;
+            auto actionIt = actionTable.find({ currentState, currentSymbol });
+            if (actionIt == actionTable.end()) {
+                throw runtime_error("Ошибка: нет действия для состояния " + to_string(currentState) + " и символа " + currentSymbol);
             }
+            string action = actionIt->second;
 
-            reduce(stateStack, symbolStack, ruleLength, nonTerminal, gotoTable);
-        }
-        else if (action == "acc") {
-            // Допуск
-            cout << "Разбор завершен успешно." << endl;
-            break;
-        }
-        else {
-            // Ошибка
-            cout << "Ошибка: недопустимый символ или состояние." << endl;
-            return 1;
-        }
-    }
+            if (action[0] == 's') {
+                int newState = convertStringToInt(action.substr(1));
+                stateStack.push(newState);
+                symbolStack.push(currentSymbol);
+                i++;
+            }
+            else if (action[0] == 'r') {
+                int ruleNumber = convertStringToInt(action.substr(1));
+                productions.push_back(ruleNumber);
 
-    // Вывод номеров продукций
-    cout << "Номера продукций обратного правого вывода: ";
-    for (int prod : productions) {
-        cout << prod << " ";
+                auto ruleLengthIt = ruleLengths.find(ruleNumber);
+                if (ruleLengthIt == ruleLengths.end()) {
+                    throw runtime_error("Ошибка: неизвестный номер правила " + to_string(ruleNumber));
+                }
+                int ruleLength = ruleLengthIt->second;
+
+                auto nonTerminalIt = ruleNonTerminals.find(ruleNumber);
+                if (nonTerminalIt == ruleNonTerminals.end()) {
+                    throw runtime_error("Ошибка: неизвестный нетерминал для правила " + to_string(ruleNumber));
+                }
+                char nonTerminal = nonTerminalIt->second;
+
+                reduce(stateStack, symbolStack, ruleLength, nonTerminal, gotoTable);
+            }
+            else if (action == "acc") {
+                cout << "Разбор завершен успешно." << endl;
+                break;
+            }
+            else {
+                throw runtime_error("Ошибка: недопустимое действие в таблице action: " + action);
+            }
+        }
+
+        if (i < input.size() - 1) {
+            throw runtime_error("Ошибка: входная строка не была полностью обработана.");
+        }
+
+        cout << "Номера продукций обратного правого вывода: ";
+        for (int prod : productions) {
+            cout << prod << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
+    catch (const exception& e) {
+        cerr << e.what() << endl;
+        return 1;
+    }
 
     return 0;
 }

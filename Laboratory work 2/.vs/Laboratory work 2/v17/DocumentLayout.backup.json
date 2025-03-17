@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Software Tools\\CompilationMethods\\Laboratory work 2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{548E9052-9806-4C80-AD0C-56B23F5F5C61}|Laboratory work 2\\Laboratory work 2.vcxproj|D:\\Software Tools\\CompilationMethods\\Laboratory work 2\\Laboratory work 2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{548E9052-9806-4C80-AD0C-56B23F5F5C61}|Laboratory work 2\\Laboratory work 2.vcxproj|solutionrelative:Laboratory work 2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1B8E38FE-565B-4182-9331-0127244E52EF}|Laboratory work 2\\Laboratory work 2.vcxproj|D:\\Software Tools\\CompilationMethods\\Laboratory work 2\\Laboratory work 2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B8E38FE-565B-4182-9331-0127244E52EF}|Laboratory work 2\\Laboratory work 2.vcxproj|solutionrelative:Laboratory work 2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,9 +24,9 @@
               "RelativeDocumentMoniker": "Laboratory work 2\\main.cpp",
               "ToolTip": "D:\\Software Tools\\CompilationMethods\\Laboratory work 2\\Laboratory work 2\\main.cpp*",
               "RelativeToolTip": "Laboratory work 2\\main.cpp*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAGkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T13:52:34.641Z",
+              "WhenOpened": "2025-03-16T15:34:00.161Z",
               "EditorCaption": ""
             }
           ]
